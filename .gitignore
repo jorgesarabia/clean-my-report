@@ -106,3 +106,4 @@ venv.bak/
 # mis ignore:
 releases
 .vscode
+config.py
