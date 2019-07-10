@@ -61,7 +61,7 @@ def sobreescribir(text,path):
 Itera a lo largo de la rama y se llama de forma recursiva.
 Recibe el path de donde buscar la lista de archivos.
 """
-def develop(path):
+def perform(path):
     for ld in os.listdir(path):
         ext = ld.split(".")
         # print("========================")
@@ -79,13 +79,13 @@ def develop(path):
             child_path = os.path.join(path,ext[0])
             # print("Se tiene que entrar a la carpeta: ")
             # print(child_path)
-            develop(child_path)
+            perform(child_path)
             
 
 """
 Metodo 2: Reemplaza los links que terminan en '.ts.htm' con '#'
 con beautifulsoup y luego sobreescribe el archivo. Con este metodo se pierden algunos estilos en 
-el css resultante.
+el css resultante.(No lo uso, pero realiza los cambios)
 """
 def replace_index(path):
     was_changed = False
@@ -114,13 +114,7 @@ def replace_index(path):
 
 if __name__ == "__main__":
     # Copio los archivos desde el directorio:
-    # copyfiles()
+    copyfiles()
 
     # Reemplazo los archivos index
-    # develop(pto)
-
-    # app_path = os.path.join(pto,"src","app")
-    # reemplazar_href(app_path)
-    # reemplazar_regex(app_path)
-
-    print(ptcc)
+    perform(pto)
