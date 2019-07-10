@@ -1,2 +1,2 @@
-# na-code-coverage
-to share the code coverage with the Noted Analytics team
+# clean-my-report
+Para limpiar el código generado por istanbul code coverage
