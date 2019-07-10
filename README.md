@@ -1,3 +1,3 @@
 # clean-my-report
-## (En proceso)
+## [En proceso]
 Para limpiar el código generado por istanbul code coverage 
