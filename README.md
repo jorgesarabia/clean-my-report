@@ -15,6 +15,21 @@ Lo que hace este script es:
 muestran el código fuente del proyecto.
 - Una vez copiados, analiza cada archivo index.html con el fin de reemplazar el href="http://<nombre_archivo>**.ts.html**" por href="#".
 
-## To do list
+# Para probar el script
+- Es recomendable clonar el proyecto en un entorno virtual. El script corre con Python 3.
+
+`git clone https://github.com/jorgesarabia/clean-my-report.git`
+
+`source <virtual_env>/bin/activate`
+
+- Configurar el `ORIGIN_PATH` en el archivo [config.py](https://github.com/jorgesarabia/clean-my-report/blob/master/config.py).
+
+`ORIGIN_PATH = "path/al/coverage"`
+
+- Probar el script:
+
+`python main.py`
+
+# To do list
 - Poner en un archivo index.html links a los reportes generados.
-- Reestructurar el proyecto
+- Reestructurar el proyecto.

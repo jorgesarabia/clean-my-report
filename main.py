@@ -64,21 +64,19 @@ Recibe el path de donde buscar la lista de archivos.
 def perform(path):
     for ld in os.listdir(path):
         ext = ld.split(".")
-        # print("========================")
-        # print(ext)
         if len(ext) > 1:
-            # print("Es un achivo")
             if ext[0] == "index":
-                # print("Se encontro el INDEX")
-                # Metodo uno funciona, pero se pierden algunos estilos..
-                # replace_index(path)
+                # Se usa el Metodo 1:
+                # Para usar el Metodo 2
+                # Comentar la siguiente linea:
                 reemplazar_regex(path)
+                # Para usar el Metodo 2:
+                # Descomentar la siguiente linea:
+                # replace_index(path)
                 return
         else:
             # Tengo que buscar dentro de esta carpeta:
             child_path = os.path.join(path,ext[0])
-            # print("Se tiene que entrar a la carpeta: ")
-            # print(child_path)
             perform(child_path)
             
 
