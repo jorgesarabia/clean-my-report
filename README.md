@@ -17,3 +17,4 @@ muestran el código fuente del proyecto.
 
 ## To do list
 - Poner en un archivo index.html links a los reportes generados.
+- Reestructurar el proyecto
