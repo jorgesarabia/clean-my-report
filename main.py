@@ -24,26 +24,36 @@ Metodo 1: Reemplaza los links que terminan en '.ts.htm' con '#'
 Lo hace mediante regex. Con este metodo no se pierden estilos en el html resultante
 """
 def reemplazar_regex(path):
-    was_changed = False
+    # was_changed = False
     f = os.path.join(path,"index.html")
     print("========================")
     file_ref = open(f,"r")
     text = file_ref.read()
-    # print(text)
+    #### Add Home: #### 
+    regex = re.compile(r'<h1>')
+    for tag in regex.findall(text):
+        myreg = re.compile(r''+tag) 
+        text = myreg.sub('<h1><a href="http://www.sarabiajor.ge/na">Home</a>',text)
+    #### #### #### #### 
+    
+    #### Delete Link: #### 
     regex = re.compile(r'href="(.*?)">')
     for tag in regex.findall(text):
         href = tag.split(".")
         if href[len(href)-2] == "ts" and href[len(href)-1] == "html":
             myreg = re.compile(r''+tag) 
             text = myreg.sub("#",text)
-            was_changed = True
+            # was_changed = True
+    #### #### #### #### 
 
     print("")
     print(text)
     print("========================")
     file_ref.close()
-    if was_changed:
-        sobreescribir(text,f)
+    # if was_changed:
+        # sobreescribir(text,f)
+    sobreescribir(text,f)
+
 
 
 """
@@ -110,9 +120,28 @@ def replace_index(path):
     file_ref.close()
 
 
+
+
+def pruebas():
+    text = """
+        <div class='wrapper'>
+            <div class='pad1'>
+                <h1>
+                    <a href="../index.html">All files</a> src
+                </h1>
+    """
+    # regex = re.compile(r'href="(.*?)">')
+    regex = re.compile(r'<h1>')
+    for tag in regex.findall(text):
+        myreg = re.compile(r''+tag) 
+        text = myreg.sub('<h1><a href="www.sarabiajor.ge/na">Home </a>',text)
+    
+    print(text)
+
 if __name__ == "__main__":
     # Copio los archivos desde el directorio:
     copyfiles()
 
     # Reemplazo los archivos index
     perform(pto)
+    # pruebas()
