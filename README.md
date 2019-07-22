@@ -31,5 +31,8 @@ muestran el código fuente del proyecto.
 `python main.py`
 
 # To do list
-- Poner en un archivo index.html links a los reportes generados.
-- Reestructurar el proyecto.
+| Tarea           | Estado | Finalizado |
+|----------------|---------------|---------------|
+| Poner en un archivo index.html links a los reportes generados. | :heavy_check_mark: | 22/07/2019 |
+| Reestructurar el proyecto. | :x: | --------------- |
+| Base de datos para no repetir las fechas. | :x: | --------------- |
