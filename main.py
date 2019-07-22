@@ -119,6 +119,9 @@ def replace_index(path):
 
 
 
+"""
+Agrega el nuevo link al index.html
+"""
 def update_home(msg = None):
     now = date.today()
     lm = last_monday()
@@ -160,12 +163,19 @@ def update_home(msg = None):
 
 
 
+"""
+Busca el Lunes anterior. 
+Si date.today() es lunes, devuelve el mismo dia.
+"""
 def last_monday():
     for d in range(0,9):
         day = timedelta(days=d)
         if (date.today()-day).strftime("%A") == "Monday":
             return day
 
+"""
+Imprime la ayuda:
+"""
 def helper():
     print("==========================================")
     print("Este script limpia el code coverage:")
@@ -179,6 +189,9 @@ def helper():
     print("==========================================")
 
 
+"""
+Para ver si es que se pasan parametros
+"""
 def runner():
     debug = False
     if len(sys.argv) > 1:
