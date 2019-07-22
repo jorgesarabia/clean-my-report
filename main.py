@@ -1,6 +1,6 @@
-from datetime import date
+from datetime import date, timedelta
 import shutil, bs4, re, os
-import config
+import config, sys
 
 # To Path
 tp = os.path.join("releases",date.today().strftime("%Y%m%d"))
@@ -25,7 +25,7 @@ Lo hace mediante regex. Con este metodo no se pierden estilos en el html resulta
 """
 def reemplazar_regex(path):
     f = os.path.join(path,"index.html")
-    print("========================")
+    # print("========================")
     file_ref = open(f,"r")
     text = file_ref.read()
 
@@ -47,7 +47,7 @@ def reemplazar_regex(path):
 
     # print("")
     # print(text)
-    print("========================")
+    # print("========================")
     file_ref.close()
     sobreescribir(text,f)
 
@@ -119,26 +119,101 @@ def replace_index(path):
 
 
 
-def pruebas():
-    text = """
-        <div class='wrapper'>
-            <div class='pad1'>
-                <h1>
-                    <a href="../index.html">All files</a> src
-                </h1>
-    """
-    # regex = re.compile(r'href="(.*?)">')
-    regex = re.compile(r'<h1>')
-    for tag in regex.findall(text):
-        myreg = re.compile(r''+tag) 
-        text = myreg.sub('<h1><a href="www.sarabiajor.ge/na">Home </a>',text)
+def update_home(msg = None):
+    now = date.today()
+    lm = last_monday()
+    f = os.path.join(os.getcwd(),"index.html")
+
+    file_ref = open(f)
     
-    print(text)
+    bsoup = bs4.BeautifulSoup(file_ref,"html.parser")
+    elem = bsoup.select("tbody")
+    
+    a = bsoup.new_tag('a')
+    a['href'] = "./" + now.strftime("%Y%m%d") + "/index.html"
+    a["title"] = "Report"
+    a.string = "Rep. " + now.strftime("%Y%m%d")
+
+    th1 = bsoup.new_tag('th')
+    th1.string = now.strftime("%B %d, %Y")
+
+    th2 = bsoup.new_tag('th')
+    if msg is None:
+        th2.string = "From " + (now-lm).strftime("%B, %d") + " to " + now.strftime("%B, %d")
+    else:
+        th2.string = msg
+
+    td = bsoup.new_tag('td')
+    td.append(a)
+
+    tr = bsoup.new_tag('tr')
+    tr.append(th1)
+    tr.append(td)
+    tr.append(th2)
+
+    elem[0].append(tr)
+
+    file_ref.close()
+    file_ref = open(f,"w")
+    file_ref.write(str(bsoup))
+    file_ref.close()
+
+
+
+def last_monday():
+    for d in range(0,9):
+        day = timedelta(days=d)
+        if (date.today()-day).strftime("%A") == "Monday":
+            return day
+
+def helper():
+    print("==========================================")
+    print("Este script limpia el code coverage:")
+    print("------------------------------------------\n")
+    print("** Argumentos Opcionales **")
+    print("\t -m: reemplaza el from-to en el index.html.")
+    print("\t\t  Ejemplo: python main.py -m 'From March 13, to July 22'")
+    print("\t\t  Genera '<th>From March 13, to July 22</th>' en el index.html\n") 
+    print("\t -d, --debug: omite la funcion update_home.\n")
+    print("\t -h, --help: muestra este mensaje y sale.\n")
+    print("==========================================")
+
+
+def runner():
+    debug = False
+    if len(sys.argv) > 1:
+        if "-h" in sys.argv  or "--help" in sys.argv:
+            print("\n\n\n")
+            helper()
+            print("\n\n\n")
+        else:
+            if "-d" in sys.argv or "--debug" in sys.argv:
+                debug = True
+                print("Se corre para debug")
+                perform(pto)
+                return
+
+            msg = None
+            if len(sys.argv) > 2 and not debug:
+                if sys.argv[1] == "-m":
+                    msg = sys.argv[2]
+                    print("msg = "+msg)
+            
+            update_home(msg)
+    else:
+        print("== Se corre por defecto ==")    
+        helper()
+        perform(pto)
+        update_home()
+
+    # print(sys.argv)
+
+
 
 if __name__ == "__main__":
+
     # Copio los archivos desde el directorio:
     copyfiles()
 
-    # Reemplazo los archivos index
-    perform(pto)
     # pruebas()
+    runner()
