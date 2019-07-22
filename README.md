@@ -35,4 +35,4 @@ muestran el código fuente del proyecto.
 |----------------|---------------|---------------|
 | Poner en un archivo index.html links a los reportes generados. | :heavy_check_mark: | 22/07/2019 |
 | Reestructurar el proyecto. | :x: | --------------- |
-| Base de datos para no repetir las fechas. | :x: | --------------- |
+| Base de datos para no repetir las fechas en el index.html. | :x: | --------------- |
