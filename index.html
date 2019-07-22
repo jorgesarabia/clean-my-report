@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Code Coverage</title>
-<link href="https://www.notedanalytics.com/favicon.ico" rel="shortcut icon" type="image/png"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" rel="stylesheet"/>
-<script defer="" src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-<style>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Code Coverage</title>
+    <link href="https://www.notedanalytics.com/favicon.ico" rel="shortcut icon" type="image/png" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" rel="stylesheet" />
+    <script defer="" src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
         .noted-background {
             background-color: orange;
         }
@@ -19,91 +20,81 @@
         }
     </style>
 </head>
+
 <body>
-<!-- Barra de navegaci贸n -->
-<nav aria-label="main navigation" class="navbar is-fixed-top has-shadow noted-background" role="navigation">
-<div class="container">
-<div class="navbar-brand">
-<a class="navbar-item" href="index.html">
-<img height="28" src="https://www.notedanalytics.com/assets/images/noted_analytics_logo_white.svg" width="112"/>
-</a>
-<a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarBasicExample" id="burger-btn" role="button" v-bind:class="{'is-active':isActive}" v-on:click="isActive = !isActive">
-<span aria-hidden="true"></span>
-<span aria-hidden="true"></span>
-<span aria-hidden="true"></span>
-</a>
-</div>
-</div>
-<!--Fin container-->
-</nav> <!-- Final del navbar -->
-<!-- Footer -->
-<section class="section">
-<div class="container">
-<div class="columns is-centered">
-<div class="column">
-<h1 class="title my-title">
+    <!-- Barra de navegaci贸n -->
+    <nav aria-label="main navigation" class="navbar is-fixed-top has-shadow noted-background" role="navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <img height="28" src="https://www.notedanalytics.com/assets/images/noted_analytics_logo_white.svg"
+                        width="112" />
+                </a>
+                <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarBasicExample"
+                    id="burger-btn" role="button" v-bind:class="{'is-active':isActive}"
+                    v-on:click="isActive = !isActive">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+        <!--Fin container-->
+    </nav> <!-- Final del navbar -->
+    <!-- Footer -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column">
+                    <h1 class="title my-title">
                         Code coverage list:
                     </h1>
-</div>
-</div>
-<table class="table table is-hoverable">
-<thead>
-<tr>
-<th><abbr title="Date">Date</abbr></th>
-<th><abbr title="See report">link</abbr></th>
-<th><abbr title="Description">Description</abbr></th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<th><abbr title="Date">Date</abbr></th>
-<th><abbr title="See report">link</abbr></th>
-<th><abbr title="Description">Description</abbr></th>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<th>July 12, 2019</th>
-<td><a href="./20190712_old/index.html" title="Report">Rep. 20190712</a>
-</td>
-<th>Report of the outdated branch</th>
-</tr>
-<tr>
-<th>July 19, 2019</th>
-<td><a href="./20190719/index.html" title="Report">Rep. 20190719</a>
-</td>
-<th>From Jul 15 to 19</th>
-</tr>
-<tr>
-<th>July 22, 2019</th>
-<td><a href="./20190722/index.html" title="Report">Rep. 20190722</a></td>
-<th>From July, 22 to July, 22</th>
-</tr>
-<tr>
-<th>July 22, 2019</th>
-<td><a href="./20190722/index.html" title="Report">Rep. 20190722</a></td>
-<th>From oneday to now</th>
-</tr>
-<tr>
-<th>July 22, 2019</th>
-<td><a href="./20190722/index.html" title="Report">Rep. 20190722</a></td>
-<th>From oneday to now</th>
-</tr>
-<tr><th>July 22, 2019</th><td><a href="./20190722/index.html" title="Report">Rep. 20190722</a></td><th>From July, 22 to July, 22</th></tr><tr><th>July 22, 2019</th><td><a href="./20190722/index.html" title="Report">Rep. 20190722</a></td><th>From July, 22 to July, 22</th></tr><tr><th>July 22, 2019</th><td><a href="./20190722/index.html" title="Report">Rep. 20190722</a></td><th>From July, 22 to July, 22</th></tr></tbody>
-</table>
-</div>
-</section>
-<!-- Fin -->
-<!-- Footer -->
-<section class="section">
-<div class="container">
-<footer class="footer">
-<div class="content has-text-centered">
-<p> Jorge Sarabia 2019 </p>
-</div>
-</footer>
-</div>
-</section>
-<!-- Fin -->
+                </div>
+            </div>
+            <table class="table table is-hoverable">
+                <thead>
+                    <tr>
+                        <th><abbr title="Date">Date</abbr></th>
+                        <th><abbr title="See report">link</abbr></th>
+                        <th><abbr title="Description">Description</abbr></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th><abbr title="Date">Date</abbr></th>
+                        <th><abbr title="See report">link</abbr></th>
+                        <th><abbr title="Description">Description</abbr></th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <th>July 12, 2019</th>
+                        <td><a href="./20190712_old/index.html" title="Report">Rep. 20190712</a>
+                        </td>
+                        <th>Report of the outdated branch</th>
+                    </tr>
+                    <tr>
+                        <th>July 19, 2019</th>
+                        <td><a href="./20190719/index.html" title="Report">Rep. 20190719</a>
+                        </td>
+                        <th>From Jul 15 to 19</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- Fin -->
+    <!-- Footer -->
+    <section class="section">
+        <div class="container">
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p> Jorge Sarabia 2019 </p>
+                </div>
+            </footer>
+        </div>
+    </section>
+    <!-- Fin -->
 </body>
+
 </html>

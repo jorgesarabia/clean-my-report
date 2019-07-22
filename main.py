@@ -173,6 +173,8 @@ def last_monday():
         if (date.today()-day).strftime("%A") == "Monday":
             return day
 
+            
+
 """
 Imprime la ayuda:
 """
