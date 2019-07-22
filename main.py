@@ -24,11 +24,11 @@ Metodo 1: Reemplaza los links que terminan en '.ts.htm' con '#'
 Lo hace mediante regex. Con este metodo no se pierden estilos en el html resultante
 """
 def reemplazar_regex(path):
-    # was_changed = False
     f = os.path.join(path,"index.html")
     print("========================")
     file_ref = open(f,"r")
     text = file_ref.read()
+
     #### Add Home: #### 
     regex = re.compile(r'<h1>')
     for tag in regex.findall(text):
@@ -43,15 +43,12 @@ def reemplazar_regex(path):
         if href[len(href)-2] == "ts" and href[len(href)-1] == "html":
             myreg = re.compile(r''+tag) 
             text = myreg.sub("#",text)
-            # was_changed = True
     #### #### #### #### 
 
-    print("")
-    print(text)
+    # print("")
+    # print(text)
     print("========================")
     file_ref.close()
-    # if was_changed:
-        # sobreescribir(text,f)
     sobreescribir(text,f)
 
 
