@@ -142,7 +142,7 @@ def update_home(msg = None):
 
     th2 = bsoup.new_tag('th')
     if msg is None:
-        th2.string = "From " + (now-lm).strftime("%B, %d") + " to " + now.strftime("%B, %d")
+        th2.string = "From " + (now-lm).strftime("%B %d") + " to " + now.strftime("%B %d")
     else:
         th2.string = msg
 
